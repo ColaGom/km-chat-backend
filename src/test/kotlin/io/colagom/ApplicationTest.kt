@@ -1,11 +1,11 @@
 package io.colagom
 
+import io.colagom.chat.plugins.configureRouting
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.server.testing.*
 import kotlin.test.*
 import io.ktor.http.*
-import io.colagom.plugins.*
 
 class ApplicationTest {
     @Test
