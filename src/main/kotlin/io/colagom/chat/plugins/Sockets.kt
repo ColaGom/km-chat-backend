@@ -1,7 +1,7 @@
 package io.colagom.chat.plugins
 
-import io.colagom.chat.ChatMessage
 import io.colagom.chat.ChatType
+import io.colagom.chat.Messages
 import io.colagom.chat.dto.ChatRoom
 import io.colagom.chat.dto.ChatUser
 import io.colagom.chat.ext.readMessage
@@ -37,7 +37,7 @@ fun Application.configureSockets() {
                         ChatType.JOIN -> {
                             session.user = chatService.onJoined(room.id, chat.message)
                             sessions.filter { it.room.id == room.id }.forEach {
-                                it.socket.send("User joined: ${chat.message}")
+                                it.socket.send(Messages.join(chat.message))
                             }
                         }
 
@@ -55,7 +55,7 @@ fun Application.configureSockets() {
                             chatService.onMessage(room.id, user.id, chat)
 
                             sessions.filter { it.room.id == room.id }.forEach {
-                                it.send(chat)
+                                it.socket.send(Messages.chat(it.name, chat))
                             }
                         }
                     }
@@ -64,8 +64,6 @@ fun Application.configureSockets() {
         }
     }
 }
-
-private suspend fun UserSession.send(chat: ChatMessage) = socket.send("$name: ${chat.message}")
 
 data class UserSession(val socket: WebSocketSession, var room: ChatRoom, var user: ChatUser? = null) {
     val name get() = user?.name ?: "Unknown"

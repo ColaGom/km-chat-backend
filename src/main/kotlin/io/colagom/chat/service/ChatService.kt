@@ -18,7 +18,7 @@ class ChatService(
     private val idCounter = AtomicLong()
     fun onJoined(roomId: Long, userName: String): ChatUser {
         val room = roomRepository.getById(roomId) ?: throw BadRequestException("invalid room id")
-        return userRepository.save(room, userName)
+        return userRepository.save(room, userName).also(room::addUser)
     }
 
     fun onMessage(roomId: Long, userId: Long, chat: ChatMessage) {

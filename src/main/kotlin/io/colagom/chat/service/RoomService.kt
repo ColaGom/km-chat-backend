@@ -12,7 +12,7 @@ class RoomService(
     private val id = AtomicLong()
 
     fun create(request: CreateRoomRequest): ChatRoom {
-        val newRoom = ChatRoom(id.incrementAndGet(), request.name, request.limit, emptyList(), now())
+        val newRoom = ChatRoom(id.incrementAndGet(), request.name, request.limit, mutableListOf(), now())
         roomRepository.save(newRoom)
         return newRoom
     }
