@@ -25,7 +25,8 @@ fun Application.configureSockets() {
         val chatService = Services.chat
         val sessions = Collections.synchronizedSet<UserSession>(LinkedHashSet())
         webSocket("/chat/{roomId}") {
-            val room: ChatRoom = call.parameters["roomId"]?.toLong()?.let(chatService::getRoom)
+            val roomId = call.parameters["roomId"]?.toLong()
+            val room: ChatRoom = roomId?.let(chatService::getRoom)
                 ?: return@webSocket close(CloseReason(CloseReason.Codes.VIOLATED_POLICY, "Invalid room id"))
 
             val session = UserSession(this, room)

@@ -8,10 +8,10 @@ class ChatUserRepositoryImpl : ChatUserRepository {
     private val users = hashMapOf<Long, ChatUser>()
     private val idCounters = AtomicLong()
     override fun getById(id: Long): ChatUser? = users[id]
-    override fun getAllByRoomId(roomId: Long): List<ChatUser> = users.values.filter { it.room?.id == roomId }
+    override fun getAllByRoomId(roomId: Long): List<ChatUser> = users.values.filter { it.roomId == roomId }
     override fun save(room: ChatRoom, userName: String): ChatUser {
         val id = idCounters.incrementAndGet()
-        val user = ChatUser(id, userName, room)
+        val user = ChatUser(id, room.id, userName)
         users.putIfAbsent(id, user)
         return user
     }
