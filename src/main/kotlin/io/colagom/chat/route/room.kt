@@ -1,6 +1,6 @@
 package io.colagom.chat.route
 
-import io.colagom.chat.dto.CreateChatRoom
+import io.colagom.chat.dto.request.CreateChatRoom
 import io.colagom.chat.service.Services
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*

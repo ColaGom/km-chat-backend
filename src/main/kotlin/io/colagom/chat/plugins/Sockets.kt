@@ -2,7 +2,7 @@ package io.colagom.chat.plugins
 
 import io.colagom.chat.Messages
 import io.colagom.chat.dto.ChatRoom
-import io.colagom.chat.dto.ChatType
+import io.colagom.chat.dto.request.ChatType
 import io.colagom.chat.dto.ChatUser
 import io.colagom.chat.ext.readMessage
 import io.colagom.chat.service.Services

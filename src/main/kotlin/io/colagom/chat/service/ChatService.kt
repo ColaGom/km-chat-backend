@@ -1,7 +1,7 @@
 package io.colagom.chat.service
 
 import io.colagom.chat.dto.Chat
-import io.colagom.chat.dto.ChatRequest
+import io.colagom.chat.dto.request.SendChat
 import io.colagom.chat.dto.ChatUser
 import io.colagom.chat.ext.now
 import io.colagom.chat.repository.ChatRepository
@@ -21,7 +21,7 @@ class ChatService(
         return userRepository.save(room, userName).also(room::addUser)
     }
 
-    fun onMessage(roomId: Long, userId: Long, chat: ChatRequest) {
+    fun onMessage(roomId: Long, userId: Long, chat: SendChat) {
         val room = getRoom(roomId) ?: throw BadRequestException("invalid room id")
         val user = getUser(userId) ?: throw BadRequestException("invalid user id")
 
