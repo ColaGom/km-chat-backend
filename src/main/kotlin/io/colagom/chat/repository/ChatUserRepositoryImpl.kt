@@ -1,7 +1,7 @@
 package io.colagom.chat.repository
 
-import io.colagom.chat.dto.ChatRoom
-import io.colagom.chat.dto.ChatUser
+import io.colagom.chat.model.ChatRoom
+import io.colagom.chat.model.ChatUser
 import java.util.concurrent.atomic.AtomicLong
 
 class ChatUserRepositoryImpl : ChatUserRepository {

@@ -1,7 +1,7 @@
 package io.colagom.chat
 
-import io.colagom.chat.dto.ChatMessage
-import io.colagom.chat.dto.request.SendChat
+import io.colagom.chat.model.ChatMessage
+import io.colagom.chat.model.request.SendChat
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 

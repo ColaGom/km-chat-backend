@@ -1,7 +1,7 @@
 package io.colagom.chat.service
 
-import io.colagom.chat.dto.ChatRoom
-import io.colagom.chat.dto.request.CreateChatRoom
+import io.colagom.chat.model.ChatRoom
+import io.colagom.chat.model.request.CreateChatRoom
 import io.colagom.chat.ext.now
 import io.colagom.chat.repository.ChatRoomRepository
 import java.util.concurrent.atomic.AtomicLong
