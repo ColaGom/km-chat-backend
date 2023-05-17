@@ -1,9 +1,9 @@
 package io.colagom.chat.service
 
-import io.colagom.chat.model.Chat
-import io.colagom.chat.model.request.SendChat
-import io.colagom.chat.model.ChatUser
 import io.colagom.chat.ext.now
+import io.colagom.chat.model.Chat
+import io.colagom.chat.model.ChatUser
+import io.colagom.chat.model.request.SendChat
 import io.colagom.chat.repository.ChatRepository
 import io.colagom.chat.repository.ChatRoomRepository
 import io.colagom.chat.repository.ChatUserRepository
